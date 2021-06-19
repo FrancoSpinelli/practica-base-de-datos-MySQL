@@ -1,0 +1,39 @@
+DIGITAL HOUSE - EVALUACIÓN PRACTICA INDIVIDUAL - BASE DE DATOS 
+
+Objetivos:
+    -Evaluar conceptos sobre Base de Datos.
+
+
+Información general:
+    -Alumno: Franco Spinelli
+    -Docentes: Uriel Sosa, Sebastían Rellihan
+    -Método de entrega: Mail
+    -Repositorio remoto: https://github.com/FrancoSpinelli/practica-base-de-datos-MySQL.git
+    -Fecha de entrega: 26/06/2021
+
+
+Procedimientos:
+    -Realizamos un Diagrama Entidad-Relación (DER), donde analizámos las necesidades del proyecto y armamos el modelo de nuestra base de datos.
+    -Exportamos nuestro DER en formato de SQL Script para luego ejecutarlo y crear nuestras tablas del diagrama. Esta posibilidad se debe a que el DER fue armado en MySQL Workbench. Tambien configuramos el encoding.
+    -Agregamos al Script ejemplos para nuestras tablas mediante la función INSERT INTO.
+    -Ejecutamos el Script que nos va a armar nuestra nueva base de datos con sus tablas y ejemplos.
+    -Dejamos una sentencia de prueba para verificar el correcto funcionamiento de nuestra base de datos.
+
+
+Entregables:
+    -Imagen de DER.
+    -Script para crear la base de datos.
+
+
+Adicional:
+    -Sentencia de testeo:
+
+        SELECT users.name as 'Usuario', email as 'Email', title as 'Título', description as 'Descripción', categories.name as 'Categoría', create_time as 'Creación', update_time 'Modificación'
+        FROM users
+        INNER JOIN notes
+        ON notes.user_id = users.id
+        INNER JOIN notes_categories
+        on notes_categories.note_id = notes.id
+        INNER JOIN categories
+        ON notes_categories.category_id = categories.id
+        ORDER BY users.name, notes.title, notes.description;
